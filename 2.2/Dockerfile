@@ -48,7 +48,11 @@ VOLUME ./data
 
 COPY docker-entrypoint.sh /
 
+USER root
+
 RUN ulimit -l unlimited
+
+USER elasticsearch
 
 EXPOSE 9200 9300
 ENTRYPOINT ["/docker-entrypoint.sh"]
